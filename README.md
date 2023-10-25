@@ -4,6 +4,10 @@
 
 ## How is Azure structured?
 
+![Alt text](myAzureStructure.png)
+
+![Alt text](myAzureStructure.png)
+
 ## Every resource in Azure has to be inside a resource group
 
 ## Resource groups are wasys to group resources and every resource group has a particular subscription
@@ -15,3 +19,41 @@
 ## Different subscriptions can be under one management group. Management groups can be used to manage access, policies and permissions for different subscriprions
 
 ## The different levels are called 'scopes' and you can set policies and permissions for each scope level
+
+## Extra Advantages of using the Cloud
+
+- Scalability
+- Security
+- Disaster recovery
+- Compliance
+- Flexibility
+- Cost efficiency
+- Cost Savings
+
+## Azure Market Share
+
+## Azure has 23% market share making it the second leading cloud provider in the market
+
+## Types of services offered by Azure
+
+- AI Machine Learning
+- Analytics
+- Compute
+- Containers
+- Databases
+- Developer Tools
+- DevOps
+- Hybrid + Multi-cloud
+- Identity
+- Integration
+- Internet of Things
+- Management and governance
+- Media
+- Migration
+- Mixed reality
+- Mobile
+- Networking
+- Security
+- Storage
+- virtual desktop infrastructure
+- Web

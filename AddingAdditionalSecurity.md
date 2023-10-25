@@ -17,9 +17,20 @@
 - Another way as mentioned is to create and amend rules within the security group
 
 - Go to the DB virtual machine and select networking
+![Alt text](AzureDBNetworking1.png)
 
 - Edit the 'source' of the default-allow-ssh rule to only allow traffic from the public subnet
+![Alt text](AzureDBNetworking2.png)
 
-- create another rule to only allow the source of mongodb (port 27027) traffic from the app into the db subnet destination. Ensure the priority is higher than any other rule except the SSH rule
+- Create another rule to only allow the source of mongodb (port 27027) traffic from the app into the db subnet destination. Ensure the priority is higher than any other rule except the SSH rule
 
-- ensure the deny anything else rule is next, after the two rules specified above. This means if traffic does not satisy any of these points it cannot connect to the machine.
+![Alt text](AzureDBNetworking3.png)
+
+- Ensure the deny anything else rule is next, after the two rules specified above.
+
+![Alt text](AzureDBNetworking4.png)
+
+- This means if traffic does not satisy any of these points it cannot connect to the machine.
+![Alt text](AzureDBNetworking5.png)
+
+

@@ -27,23 +27,27 @@ sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
 
 ## We would also want our db to only have a private ip
 
-## As mentioned we can follow the steps to set up the db VM ensuring to set up the user data with the following script:
+## As mentioned we can follow the steps to set up the db VM ensuring to set up the user data with the following script
 
 ```bash
 #!/bin/bash
-
+# ensure youre in the right folder
+cd ~
 # update and upgrade
+export DEBIAN_FRONTEND=noninteractive
+sudo DEBIAN_FRONTEND=noninteractive dpkg --configure -a
 sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
 
-# get mongodb
+# acquire mongoDB key
 wget -qO - https://www.mongodb.org/static/pgp/server-3.2.asc | sudo apt-key add -
 
+# add mongo repository
 echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
 
-#restart/start nginx
+# update packages to fecth mongo
 sudo apt update
 
-#enable nginx
+# Install MongoDB3.2 packages
 sudo apt-get install -y mongodb-org=3.2.20 mongodb-org-server=3.2.20 mongodb-org-shell=3.2.20 mongodb-org-mongos=3.2.20 mongodb-org-tools=3.2.20
 
 # install sed
@@ -61,17 +65,20 @@ sudo systemctl enable mongod
 sudo systemctl status mongod
 ```
 
-
 # For the app VM
 
-## As mentioned we can follow the steps to set up the App VM ensuring to set up the user data with the following script:
+## As mentioned we can follow the steps to set up the App VM ensuring to set up the user data with the following script
 
 ```bash
-
 #!/bin/bash
 
 # update & upgrade
+cd ~
+export DEBIAN_FRONTEND=noninteractive
+sudo DEBIAN_FRONTEND=noninteractive dpkg --configure -a
 sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
+#sudo apt update -y
+#sudo DEBIAN_FRONTEND=noninteractive apt upgrade -yq -o Dpkg::Options::="--force-confnew"
 
 # install nginx
 sudo apt install nginx -y
@@ -83,20 +90,22 @@ sudo sed -i "s/try_files \$uri \$uri\/ =404;/proxy_pass http:\/\/localhost:3000\
 
 # restart nginx 
 sudo systemctl restart nginx
-
+sudo systemctl enable nginx
 # install nodejs 12.x
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install nodejs -y
-export DB_HOST=mongodb://20.39.220.189/posts
+
+export DB_HOST=mongodb://10.0.3.5/posts
 
 # install pm2 (only necessary later)
 sudo npm install pm2 -g
 
 # clone repo with app folder into folder called 'repo' - only needed if don't have the app folder already
-git clone https://github.com/LSF970/sparta_test_app.git repo
+sudo apt install git -y
+git clone https://github.com/shaluomehra/sparta_test_app.git repo
 
 # install the app (must be after db vm is finished provisioning)
-cd repo/app
+cd ~/repo/app
 
 npm install
 node seeds/seed.js

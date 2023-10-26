@@ -1,6 +1,8 @@
 # Blob storage
 
 ## What is Blob Storage
+![Alt text](BlobDiagram.png)
+
 - Blob stands for Binary Large Object Storage is a type of storage used as way to store unsturctured data.
 
 - within a storage account within a resource group
@@ -19,10 +21,11 @@
 
 - you have to make sure its the right avcess group othersise it will cost more. e.g. a regularly accessed website would be in the hot tier if not it would cost more to grab the data
 
-# using Azure CLI
+# using Azure CLI with blob
 - creating a storage account , creating a container, finding and downloading the blob "cat.jpg"
 
-- you can vhange the access level also via command
+![Alt text](DifferentBlobStorage.png)
+- you can change the access level also via command
 
 - types of redundancy : 
 - LRS (locally redundant storage 3 copies, 1 availavility zone)

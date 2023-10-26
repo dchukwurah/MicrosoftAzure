@@ -4,21 +4,23 @@
 
 - However we faced a blocker as the app is running in the background we weren't able to stop the process in order to relaunch the app
 
-- This is because the app is currently running on port 3000 and only one process can run on a port at a time 
-![Alt text](pm2NoProcess.png)
+- This is because the app is currently running on port 3000 and only one process can run on a port at a time. 
+
+![Alt text](portalreadyinuse.png)
 
 ## Personal blocker 
 
-- Initially I didn't see my app folder, this is becsuse I had entered user data and at the start used 'cd ~' this meant that my repo was saved into the root folder as ~ is root for the root user.
+- Initially I didn't see my app folder, this is becsuse I had entered user data and at the start used `cd ~` this meant that my repo was saved into the root folder as `~` is root for the root user.
+
 ![Alt text](noappinadmin.png)
 
-- I was able to access the repo by entering 'sudo su' and then 'cd ~'.
+- I was able to access the repo by entering 'sudo su' and then `cd ~`.
 
 ![Alt text](appinadmin.png)
 
 ## Checking Pm2 for running services
 
-- After accessing the app folder we used 'pm2 list' to check the pm2 processes running and we couldnt see theres nothing running.
+- After accessing the app folder we used `pm2 list` to check the pm2 processes running and we couldnt see theres nothing running.
 ![Alt text](pm2NoProcess.png)
 
 - We couldnt see this initially as its being run by the root user, so we knew it was running but pm2 says its not running
@@ -29,8 +31,13 @@
 - This list was very long so in order to get all the information we can combine this command by `|` use `grep` to filter what we want by following it with a keyword.
 
 
+
+
 - Initially we used `node` but as `pm2` is the process manager  running node, it was not successful to run a `sudo kill` command as pm2 will restart it. So instead we had to use `pm2`.
+`ps aux | grep pm2`
+
 ![Alt text](sudopm2kill.png)
+
 
 - This highlighted all of the processes containing pm2 and we could then select the one being run by the root user.
 ![Alt text](sudopm2killresult.png)

@@ -73,7 +73,6 @@ sudo systemctl status mongod
 #!/bin/bash
 
 # update & upgrade
-cd ~
 export DEBIAN_FRONTEND=noninteractive
 sudo DEBIAN_FRONTEND=noninteractive dpkg --configure -a
 sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
@@ -105,7 +104,7 @@ sudo apt install git -y
 git clone https://github.com/shaluomehra/sparta_test_app.git repo
 
 # install the app (must be after db vm is finished provisioning)
-cd ~/repo/app
+cd repo/app
 
 npm install
 node seeds/seed.js

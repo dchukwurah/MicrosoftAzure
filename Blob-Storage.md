@@ -3,32 +3,36 @@
 ## What is Blob Storage
 ![Alt text](BlobDiagram.png)
 
-- Blob stands for Binary Large Object Storage is a type of storage used as way to store unsturctured data.
+Blob stands for Binary Large Object Storage is a type of storage used as way to store unsturctured data.
 
-- within a storage account within a resource group
+Blobs are located within a storage account within a resource group
 
-- cheapest form of blob storage is archival
+The cheapest form of blob storage is archival
 
-- blobs are stored in containers ( think of throwing clothes (blobs) on the bed (container).
+Blobs are stored in containers (think of throwing clothes (blobs) on the bed (container)).
 
-- if you are accessing blobs a lot then the access tier = frequent= hot
+If you are accessing blobs a lot then the access tier will be hot. (frequent= hot)
 
-- subsequent tiers are cold and archival being the lowest
+Subsequent tiers are cold and then archival being the lowest. (medium= cold, rarely = archival)
 
-- if you want to make access archival you need to do it manually and say its archival
+If you want to make access archival you need to do it manually and say its archival lets say if youre not acessing it for months/years
 
-- this is for if youre not acessing it for months/years
+You can change the access level also via command
 
-- you have to make sure its the right avcess group othersise it will cost more. e.g. a regularly accessed website would be in the hot tier if not it would cost more to grab the data
+The right access tier is critical as othersise it will cost more. e.g. a regularly accessed website should be in the hot tier if not it would cost more to grab the data from another access tier.
 
-# using Azure CLI with blob
-- creating a storage account , creating a container, finding and downloading the blob "cat.jpg"
+## Soon we will be using Azure CLI with blob storage
+
+We will be doing the following steps soon:
+
+- Creating a storage account 
+- Creating a container
+- Finding and downloading the blob "cat.jpg"
+
+# Types of redundancy : 
 
 ![Alt text](DifferentBlobStorage.png)
-- you can change the access level also via command
 
-- types of redundancy : 
-- LRS (locally redundant storage 3 copies, 1 availavility zone)
-- ZRS (sone redundant storage) a copy in each azailability zone
-
-- There are also different tiers
+- LRS (locally redundant storage 3 copies, 1 availavility zone): stores multiple copies in one AZ
+- ZRS (sone redundant storage): stores a copy in each azailability zone
+- There are also different tiers as mentioned above

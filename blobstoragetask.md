@@ -27,8 +27,11 @@ az storage container create \
 ```
 
 download a cat picture (jpg) using the curl command
-
+```
+ curl -o cat.jpg https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_700/MTk2NzY3MjA5ODc0MjY5ODI2/top-10-cutest-cat-photos-of-all-time.webp
 rename the cat pic
+
+```
 
 upload blob
 
@@ -40,41 +43,14 @@ az storage blob upload \
 --file cat.jpg \
 --auth-mode login
 
-make blob public
-
 modify homepage file (index.ejs found in views folder) to include cat image in blob storage (use sed command to replace )
 
-with pm2 kill the app running
+- sed to search for </h2>
 
-start the app using pm2
-
-Test your script works
-
-Once it works: post link in the chat showing modified home page running (along with message: "Modified home page with script")
-
-Make your script called: revert-homepage.sh (save scripts in the app folder). Steps for your script:
-
-change homepage index file back to normal (use sed command)
-
-with pm2 kill the app running
-
-start the app using pm2
-
-remove storage account
+sudo sed -i 's/<h2>/<h2>The app is running correctly.</h2><img src="https://tech254chiedoziestorage.blob.core.windows.net/testcontainer/cat.jpg"/>
+ /' ~/repo/app/views/index.ejs
 
 
-create a storage account (we cannot use dashes or hyphens)
-```
-az storage account create --name tech254chiedoziestorage --resource-group tech254 --location uksouth --sku Standard_ZRS
-```
-create a container (ensure access level with command)
-```
-az storage container create \
-     --account-name tech254chiedoziestorage \
-     --name testcontainer
-     --auth-mode login
-     --public -access blob
-```
 - This specialises how we want to authenticate your login
 ```
 --auth-mode login

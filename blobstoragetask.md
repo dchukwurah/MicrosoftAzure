@@ -9,6 +9,7 @@ Use the steps below to configure the home page manually, once we've done this we
 2. Install and Login to Azure CLI
 
 3. Create storage account
+
 ```
 az storage container create \
      --account-name tech254chiedoziestorage \
@@ -90,5 +91,5 @@ https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_70
 - When trying to use sed command I couldn't figure out how to change the image in index.ejs file the sed command did not work due to not having pipes and backslashes in the right place. The below command should fix it.
 
 ```
-sudo sed -i 's|<\/h2>|<\/h2> \n <img src="https://tech254andrewstorage.blob.core.windows.net/tech254andrewcontainer/catpic.txt" \/>|' ~/repo/app/views/index.ejs
+sudo sed -i 's|<\/h2>|<\/h2> \n <img src="https://tech254chiedoziestorage.blob.core.windows.net/testcontainer/cat.jpg" \/>|' ~/repo/app/views/index.ejs
 ```

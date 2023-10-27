@@ -49,9 +49,12 @@ modify homepage file (index.ejs found in views folder) to include cat image in b
 
 sudo sed -i 's/<h2>/<h2>The app is running correctly.</h2><img src="https://tech254chiedoziestorage.blob.core.windows.net/testcontainer/cat.jpg"/>
  /' ~/repo/app/views/index.ejs
+---
 
+# Other notes
 
 - This specialises how we want to authenticate your login
+
 ```
 --auth-mode login
 ```
@@ -64,21 +67,17 @@ az storage blob upload \
 --file text.txt \
 --auth-mode login
 
-- to access your blob you need to change the access level 
+- to access your blob you need to change the access level
 
 - downloading a cat image 
 https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_700/MTk2NzY3MjA5ODc0MjY5ODI2/top-10-cutest-cat-photos-of-all-time.webp
 
 - sudo nano index.ejs
 
-
 - sed to search for </h2>
 
 sudo sed -i 's/<h2>/<h2>The app is running correctly.</h2><img src="https://tech254chiedoziestorage.blob.core.windows.net/testcontainer/cat.jpg"/>
  /' ~/repo/app/views/index.ejs
 
-
-
 ## Blockers
 - When trying to use sed command I couldn't figure out how to change the image in index.ejs file sed command did not work
-

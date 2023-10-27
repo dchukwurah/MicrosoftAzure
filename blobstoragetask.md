@@ -36,20 +36,25 @@ rename the cat pic
 6. upload blob
 
 - upload your blob (using this command you can rename your blob as it uploads )
+
+```
 az storage blob upload \
 --account-name tech254chiedoziestorage \
 --container-name testcontainer \
 --name cat.jpg \
 --file cat.jpg \
 --auth-mode login
+```
 
 7. Modify homepage file (index.ejs found in views folder) to include cat image in blob storage (use sed command to replace )
 
-- sed to search for </h2>
+- Use sed to search for "</h 2>"
 
+```
 sudo sed -i 's/<h2>/<h2>The app is running correctly.</h2><img src="https://tech254chiedoziestorage.blob.core.windows.net/testcontainer/cat.jpg"/>/' ~/repo/app/views/index.ejs
+```
 
- ## Here I hit a blocker which is explained at the end of the file.
+## On this step I hit a blocker which is explained at the end of the file.
 ---
 
 # Other notes
@@ -75,10 +80,15 @@ https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_70
 
 - sudo nano index.ejs
 
-- sed to search for </h2>
+- sed to search for '</ h2>'
 
-sudo sed -i 's/<h2>/<h2>The app is running correctly.</h2><img src="https://tech254chiedoziestorage.blob.core.windows.net/testcontainer/cat.jpg"/>
+```sudo sed -i 's/<h2>/<h2>The app is running correctly.</h2><img src="https://tech254chiedoziestorage.blob.core.windows.net/testcontainer/cat.jpg"/>
  /' ~/repo/app/views/index.ejs'
+```
 
 ## Blockers
-- When trying to use sed command I couldn't figure out how to change the image in index.ejs file sed command did not work
+- When trying to use sed command I couldn't figure out how to change the image in index.ejs file the sed command did not work due to not having pipes and backslashes in the right place. The below command should fix it.
+
+```
+sudo sed -i 's|<\/h2>|<\/h2> \n <img src="https://tech254andrewstorage.blob.core.windows.net/tech254andrewcontainer/catpic.txt" \/>|' ~/repo/app/views/index.ejs
+```

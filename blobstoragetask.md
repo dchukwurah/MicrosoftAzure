@@ -17,7 +17,7 @@ az storage container create \
      --public -access blob
 ```
 
-Create a container (ensure access level with command)
+4. Create a container (ensure access level with command)
 ```
 az storage container create \
      --account-name tech254chiedoziestorage \
@@ -26,14 +26,14 @@ az storage container create \
      --public -access blob
 ```
 
-download a cat picture (jpg) using the curl command
+5. download a cat picture (jpg) using the curl command
 ```
  curl -o cat.jpg https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_700/MTk2NzY3MjA5ODc0MjY5ODI2/top-10-cutest-cat-photos-of-all-time.webp
 rename the cat pic
 
 ```
 
-upload blob
+6. upload blob
 
 - upload your blob (using this command you can rename your blob as it uploads )
 az storage blob upload \
@@ -43,12 +43,13 @@ az storage blob upload \
 --file cat.jpg \
 --auth-mode login
 
-modify homepage file (index.ejs found in views folder) to include cat image in blob storage (use sed command to replace )
+7. Modify homepage file (index.ejs found in views folder) to include cat image in blob storage (use sed command to replace )
 
 - sed to search for </h2>
 
-sudo sed -i 's/<h2>/<h2>The app is running correctly.</h2><img src="https://tech254chiedoziestorage.blob.core.windows.net/testcontainer/cat.jpg"/>
- /' ~/repo/app/views/index.ejs
+sudo sed -i 's/<h2>/<h2>The app is running correctly.</h2><img src="https://tech254chiedoziestorage.blob.core.windows.net/testcontainer/cat.jpg"/>/' ~/repo/app/views/index.ejs
+
+ ## Here I hit a blocker which is explained at the end of the file.
 ---
 
 # Other notes
@@ -77,7 +78,7 @@ https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_70
 - sed to search for </h2>
 
 sudo sed -i 's/<h2>/<h2>The app is running correctly.</h2><img src="https://tech254chiedoziestorage.blob.core.windows.net/testcontainer/cat.jpg"/>
- /' ~/repo/app/views/index.ejs
+ /' ~/repo/app/views/index.ejs'
 
 ## Blockers
 - When trying to use sed command I couldn't figure out how to change the image in index.ejs file sed command did not work

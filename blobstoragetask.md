@@ -1,21 +1,44 @@
 
 # How to Change the app homepage using Azure CLI and Blob Stoage
 
-Use the steps below to configure the home page manually, once we've done this we can create a script to do this automatically
+Use the steps below to configure the home page manually, once we've done this we can create a script to do this automatically:
 
-Create fresh VM with user data without app running
 
-Install and Login to Azure CLI
+1. Create fresh VM with user data without app running
 
-Create storage account
+2. Install and Login to Azure CLI
 
-Create container
+3. Create storage account
+```
+az storage container create \
+     --account-name tech254chiedoziestorage \
+     --name testcontainer
+     --auth-mode login
+     --public -access blob
+```
+
+Create a container (ensure access level with command)
+```
+az storage container create \
+     --account-name tech254chiedoziestorage \
+     --name testcontainer
+     --auth-mode login
+     --public -access blob
+```
 
 download a cat picture (jpg) using the curl command
 
 rename the cat pic
 
 upload blob
+
+- upload your blob (using this command you can rename your blob as it uploads )
+az storage blob upload \
+--account-name tech254chiedoziestorage \
+--container-name testcontainer \
+--name cat.jpg \
+--file cat.jpg \
+--auth-mode login
 
 make blob public
 

@@ -11,7 +11,6 @@
 
 - Go to app instance with public IP and select the IP from the overview page
 
-
 # Creating Network Security Rules within your DB network security group (nsg)
 
 - Another way as mentioned is to create and amend rules within the security group
@@ -32,5 +31,3 @@
 
 - This means if traffic does not satisy any of these points it cannot connect to the machine.
 ![Alt text](AzureDBNetworking5.png)
-
-

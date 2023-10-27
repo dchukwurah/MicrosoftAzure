@@ -71,7 +71,7 @@ sudo systemctl status mongod
 
 ```bash
 #!/bin/bash
-
+cd /home/adminuser
 # update & upgrade
 export DEBIAN_FRONTEND=noninteractive
 sudo DEBIAN_FRONTEND=noninteractive dpkg --configure -a

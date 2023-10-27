@@ -80,5 +80,5 @@ sudo sed -i 's/<h2>/<h2>The app is running correctly.</h2><img src="https://tech
 
 
 ## Blockers
-- When trying to script, can't figure out how to change the image in index.ejs file (Script not working) 
+- When trying to use sed command I couldn't figure out how to change the image in index.ejs file sed command did not work
 
